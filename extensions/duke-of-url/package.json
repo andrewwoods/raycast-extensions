@@ -1,0 +1,55 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "duke-of-url",
+  "version": "0.1.0",
+  "title": "Duke of URL",
+  "description": "Make it easy to work with a URL",
+  "categories": ["Data"],
+  "keywords": ["url", "parse", "query string", "utility", "web"],
+  "icon": "extension-icon.png",
+  "author": "awoods",
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "edit",
+      "title": "Edit Query Parameters",
+      "description": "Change the parameters in the Page URL",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "longUrl",
+          "placeholder": "Long URL",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "extract",
+      "title": "Extract URL Version",
+      "description": "Copy a version of your long URL",
+      "mode": "view",
+      "arguments": []
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.102.6",
+    "@raycast/utils": "^1.17.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.0.4",
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.10",
+    "eslint": "^9.22.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.2"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
