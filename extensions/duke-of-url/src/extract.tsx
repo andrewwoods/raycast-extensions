@@ -18,7 +18,7 @@ export default function Command() {
   const [inputText, setInputText] = useState("");
 
   const handleParse = useCallback(() => {
-    if (inputText != "" && inputText.substr('://') && !isValid(inputText)) {
+    if (inputText != "" && inputText.substr("://") && !isValid(inputText)) {
       showToast({ title: "The URL is not valid!", style: Toast.Style.Failure });
       return;
     }
