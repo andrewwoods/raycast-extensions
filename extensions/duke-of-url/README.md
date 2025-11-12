@@ -65,7 +65,7 @@ $ npm run lint
 * [Semantic Versioning](http://semver.org)
 * [GitHub Markdown](https://help.github.com/categories/writing-on-github/)
 * [Contributing Guidelines](https://help.github.com/articles/setting-guidelines-for-repository-contributors/)
-* [Changelog](docs/CHANGELOG.md)
+* [Changelog](CHANGELOG.md)
 * [Humans TXT](http://humanstxt.org/) 
 * [Robots TXT](http://www.robotstxt.org/) 
 * [Git Ignore Generator](https://www.gitignore.io/)

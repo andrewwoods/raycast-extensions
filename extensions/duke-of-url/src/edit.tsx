@@ -3,9 +3,8 @@ import { Action, ActionPanel, Clipboard, Form, LaunchProps, showToast, Toast } f
 import { makePageUrl } from "./url.tsx";
 import { useForm } from "@raycast/utils";
 
-interface SignUpFormValues {
-  name: string;
-  password: string;
+interface FormValues {
+  [key: string]: string;
 }
 
 export default function Command(props: LaunchProps<{ arguments: Arguments.MyCommand }>) {
@@ -19,7 +18,7 @@ export default function Command(props: LaunchProps<{ arguments: Arguments.MyComm
     paramsList.push(<Form.TextField key={key} id={key} title={fieldTitle} defaultValue={value} />);
   });
 
-  const { handleSubmit } = useForm<SignUpFormValues>({
+  const { handleSubmit } = useForm<FormValues>({
     onSubmit(values) {
       const queryParams = new URLSearchParams();
       for (const key in values) {
