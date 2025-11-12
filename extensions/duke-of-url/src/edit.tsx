@@ -1,18 +1,19 @@
 import { Action, ActionPanel, Clipboard, Form, LaunchProps, showToast, Toast } from "@raycast/api";
 
-import { makePageUrl } from "./url.tsx";
+import { makePageUrl } from "./url";
 import { useForm } from "@raycast/utils";
+import type { JSX } from "react";
 
 interface FormValues {
   [key: string]: string;
 }
 
-export default function Command(props: LaunchProps<{ arguments: Arguments.MyCommand }>) {
+export default function Command(props: LaunchProps<{ arguments: Arguments.Edit }>) {
   const { longUrl } = props.arguments;
 
   const url = new URL(longUrl);
 
-  const paramsList = [];
+  const paramsList: JSX.Element[] = [];
   url.searchParams.forEach((value, key) => {
     const fieldTitle = key.toUpperCase();
     paramsList.push(<Form.TextField key={key} id={key} title={fieldTitle} defaultValue={value} />);
@@ -28,8 +29,8 @@ export default function Command(props: LaunchProps<{ arguments: Arguments.MyComm
         }
         queryParams.append(key, values[key]);
       }
-      let updatedUrl = makePageUrl(url);
-      updatedUrl += "?" + queryParams.toString();
+      let pageUrl = makePageUrl(url);
+      let updatedUrl = pageUrl.toString() + "?" + queryParams.toString();
       Clipboard.copy(updatedUrl);
 
       showToast({

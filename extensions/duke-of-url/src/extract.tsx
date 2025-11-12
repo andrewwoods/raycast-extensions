@@ -1,7 +1,7 @@
 import { Action, ActionPanel, List, showToast, Toast } from "@raycast/api";
 import { useCallback, useState } from "react";
 
-import { makePageUrl, makeSiteUrl } from "./url.tsx";
+import { makePageUrl, makeSiteUrl } from "./url";
 
 /**
  * Test URLs
@@ -18,7 +18,7 @@ export default function Command() {
   const [inputText, setInputText] = useState("");
 
   const handleParse = useCallback(() => {
-    if (inputText != "" && inputText.substr("://") && !isValid(inputText)) {
+    if (inputText != "" && inputText.includes("://") && !isValid(inputText)) {
       showToast({ title: "The URL is not valid!", style: Toast.Style.Failure });
       return;
     }
@@ -72,7 +72,7 @@ function Row(props: { label: string; desc: string; value: string }) {
   );
 }
 
-function isValid(url) {
+function isValid(url: string) {
   try {
     new URL(url);
     return true;
