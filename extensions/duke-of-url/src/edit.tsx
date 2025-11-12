@@ -29,8 +29,8 @@ export default function Command(props: LaunchProps<{ arguments: Arguments.Edit }
         }
         queryParams.append(key, values[key]);
       }
-      let pageUrl = makePageUrl(url);
-      let updatedUrl = pageUrl.toString() + "?" + queryParams.toString();
+      const pageUrl = makePageUrl(url);
+      const updatedUrl = pageUrl.toString() + "?" + queryParams.toString();
       Clipboard.copy(updatedUrl);
 
       showToast({
